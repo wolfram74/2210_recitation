@@ -14,10 +14,10 @@ Vue.component('step', {
 })
 
 Vue.component('foil',{
-  props:['foil', 'id'],
+  props:['foil_str', 'id'],
   template:`
-  <li>
-    fart
+  <li class = 'foil-block'>
+    <span> {{foil_str}} </span>
   </li>
   `
 })
@@ -30,8 +30,8 @@ Vue.component('problem', {
     <p> {{problem.description}}</p>
     <ol class='foils' v-if='problem.foils'>
       <foil
-        v-for='(foil, index) in problem.foils'
-        v-bind:step='step'
+        v-for='(foil_str, index) in problem.foils'
+        v-bind:foil_str='foil_str'
         v-bind:id='index'
         v-bind:key='index'
       >
